@@ -1,0 +1,67 @@
+[package]
+name = "aliyun-oss-cli"
+version = "1.0.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "阿里云 OSS 命令行工具 - Rust 版本"
+license = "MIT"
+repository = "https://github.com/yourusername/aliyun-oss-cli"
+
+[[bin]]
+name = "aliyun-oss-cli"
+path = "src/main.rs"
+
+[dependencies]
+# CLI 框架
+clap = { version = "4.5", features = ["derive", "env"] }
+
+# 异步运行时
+tokio = { version = "1.36", features = ["full"] }
+
+# HTTP 客户端
+reqwest = { version = "0.12", features = ["json", "stream"] }
+
+# 序列化/反序列化
+serde = { version = "1.0", features = ["derive"] }
+serde_yaml = "0.9"
+quick-xml = { version = "0.37", features = ["serialize"] }
+
+# 配置管理
+config = "0.14"
+
+# 阿里云 OSS SDK
+aliyun-oss-rust-sdk = { version = "0.2", optional = true }
+
+# 由于没有官方 Rust SDK，我们使用自定义实现
+# 以下用于 OSS 签名和请求
+hmac = "0.12"
+sha1 = "0.10"
+base64 = "0.22"
+chrono = "0.4"
+urlencoding = "2.1"
+
+# 文件路径处理
+dirs = "5.0"
+walkdir = "2.5"
+
+# 错误处理
+anyhow = "1.0"
+thiserror = "1.0"
+
+# 日志
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# 其他工具
+mime_guess = "2.0"
+uuid = { version = "1.7", features = ["v4"] }
+bytes = "1.5"
+futures = "0.3"
+indicatif = "0.17"  # 进度条
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true
+codegen-units = 1
+panic = "abort"

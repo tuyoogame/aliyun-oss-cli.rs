@@ -1,0 +1,36 @@
+# 编译产物
+/target/
+**/*.rs.bk
+*.pdb
+
+# 二进制文件
+aliyun-oss-cli
+aliyun-oss-cli.exe
+
+# 构建目录
+build/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 配置文件（避免泄露密钥）
+config.yaml
+
+# 测试文件
+*.test
+
+# 覆盖率文件
+*.profraw
+*.profdata
+
+# Cargo 锁文件（对于二进制项目，通常应该提交 Cargo.lock）
+# 这里我们保留 Cargo.lock

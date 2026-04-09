@@ -1,0 +1,55 @@
+# 阿里云 OSS CLI 配置文件
+#
+# 使用方式：
+#   cp config.yaml.example config.yaml
+#   然后编辑 config.yaml 填入你的实际配置
+#
+# 配置说明：
+#   1. 支持两种格式：扁平格式（单配置）和多 profile 格式
+#   2. 环境变量优先级：命令行参数 > 环境变量 > 配置文件
+#   3. 支持的环境变量：
+#      - ALIYUN_OSS_ENDPOINT
+#      - ALIYUN_OSS_ACCESS_KEY
+#      - ALIYUN_OSS_SECRET_KEY
+#      - ALIYUN_OSS_BUCKET
+
+# ============================================================
+# 格式一：扁平格式（适合只有一套配置的场景）
+# ============================================================
+
+# endpoint: "oss-cn-hangzhou.aliyuncs.com"
+# access-key: "your-access-key-id"
+# secret-key: "your-access-key-secret"
+# bucket: "your-bucket-name"
+
+# ============================================================
+# 格式二：多 profile 格式（适合多环境/多区域的场景）
+#   使用 --profile <name> 切换，默认使用 default
+# ============================================================
+
+default:
+  endpoint: "oss-cn-hangzhou.aliyuncs.com"
+  access-key: ""
+  secret-key: ""
+  bucket: ""
+
+# 示例：北京区域
+# beijing:
+#   endpoint: "oss-cn-beijing.aliyuncs.com"
+#   access-key: ""
+#   secret-key: ""
+#   bucket: "your-bucket-name"
+
+# 示例：上海区域
+# shanghai:
+#   endpoint: "oss-cn-shanghai.aliyuncs.com"
+#   access-key: ""
+#   secret-key: ""
+#   bucket: "your-bucket-name"
+
+# 示例：海外区域
+# overseas:
+#   endpoint: "oss-us-west-1.aliyuncs.com"
+#   access-key: ""
+#   secret-key: ""
+#   bucket: "your-bucket-name"
